@@ -37,9 +37,10 @@ end
 
 output = Reducers.render(template)
 
-puts "Now in:" + Dir.pwd
+output_path = File.expand_path File.dirname(__FILE__)
+puts "Now in:" + output_path
 puts "Create: #{ARGV[0]}.js 內容如下 \n"
 puts "***********************************************"
 puts output
 
-File.open("#{ARGV[0]}.js", 'w'){ |file| file.write(output) }
+File.open("#{output_path}/#{ARGV[0]}.js", 'w'){ |file| file.write(output) }

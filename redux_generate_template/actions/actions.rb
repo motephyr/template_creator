@@ -1,11 +1,11 @@
 require 'mustache'
 
 template =
-%Q?export const {{action}}_{{value}} = '{{action}}_{{value}}';
+%Q?export const {{action_upcase}}_{{value_upcase}} = '{{action_upcase}}_{{value_upcase}}';
 
-export function {{action_downcase}}() {
+export function {{action}}() {
   return {
-    type: {{action}}_{{value}}
+    type: {{action_upcase}}_{{value_upcase}}
   };
 }
 ?
@@ -15,20 +15,22 @@ class Actions < Mustache
     ARGV[1]
   end
 
-  def value
-    ARGV[2]
+  def value_upcase
+    ARGV[2].upcase
   end
 
-  def action_downcase
-    action.downcase
+  def action_upcase
+    action.upcase
   end
 
 end
 
 output = Actions.render(template)
 
-puts "Now in:" + Dir.pwd
-puts "Create: #{ARGV[0]}.js"
+output_path = File.expand_path File.dirname(__FILE__)
+puts "Now in:" + output_path
+puts "Create: #{ARGV[0]}.js 內容如下 \n"
+puts "***********************************************"
 puts output
 
-File.open("#{ARGV[0]}.js", 'w'){ |file| file.write(output) }
+File.open("#{output_path}/#{ARGV[0]}.js", 'w'){ |file| file.write(output) }

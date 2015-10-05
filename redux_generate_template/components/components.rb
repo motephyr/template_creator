@@ -1,7 +1,8 @@
 require 'mustache'
 
-template = %Q?import {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
+template =
+%Q?import {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
 
 @connect(state => ({
   {{value}}: state.{{value}}
@@ -16,19 +17,19 @@ export default class {{class_name}} extends Component {
   }
 
   handleChange(e) {
-    const {actions} = this.props;
+    const {actions} = this.props
 
-    actions.{{action}}(e.target.value);
+    actions.{{action}}(e.target.value)
   }
 
   render() {
-    const { {{value}} } = this.props;
+    const { {{value}} } = this.props
 
     return (
       <p>
         <input onChange={::this.handleChange} value={ {{value}} } />{ {{value}} }
       </p>
-    );
+    )
   }
 }
 

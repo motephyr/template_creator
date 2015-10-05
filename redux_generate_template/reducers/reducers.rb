@@ -1,17 +1,17 @@
 require 'mustache'
 
 template =
-%Q?import * as types from '../actions/{{value}}';
+%Q?import * as types from '../actions/{{value}}'
 
 export default function {{value}}(state = '', action) {
   //state是指先前的狀能
   //action是指action傳來的值
   switch (action.type) {
   case types.{{action_upcase}}_{{value_upcase}}:
-    return action.{{value}} ;
+    return action.{{value}}
 
   default:
-    return state;
+    return state
   }
 }
 ?

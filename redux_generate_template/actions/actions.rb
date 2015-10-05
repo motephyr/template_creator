@@ -1,12 +1,12 @@
 require 'mustache'
 
 template =
-%Q?export const {{action_upcase}}_{{value_upcase}} = '{{action_upcase}}_{{value_upcase}}';
+%Q?export const {{action_upcase}}_{{value_upcase}} = '{{action_upcase}}_{{value_upcase}}'
 
 export function {{action}}() {
   return {
     type: {{action_upcase}}_{{value_upcase}}
-  };
+  }
 }
 ?
 

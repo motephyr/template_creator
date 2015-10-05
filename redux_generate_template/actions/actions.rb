@@ -27,7 +27,7 @@ end
 
 output = Actions.render(template)
 
-output_path = File.expand_path File.dirname(__FILE__)
+output_path = Dir.pwd
 puts "Now in:" + output_path
 puts "Create: #{ARGV[0]}.js 內容如下 \n"
 puts "***********************************************"

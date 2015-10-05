@@ -22,22 +22,8 @@ file_array.each do |name|
   # create file strecutre (if not exist)
   `mkdir #{name}`
   #create file
-p "#{output_path}/#{name}"
-  # `cd #{output_path}/#{name};ruby #{file_path}/#{name}/#{name}.rb #{ARGV[0]} #{ARGV[1]} #{ARGV[2]}`
+p "cd #{output_path}/#{name};ruby #{file_path}#{name}/#{name}.rb #{ARGV[0]} #{ARGV[1]} #{ARGV[2]}"
+  `cd #{output_path}/#{name};ruby #{file_path}#{name}/#{name}.rb #{ARGV[0]} #{ARGV[1]} #{ARGV[2]}`
 end
 
-
-
-#create
-if $?.to_i==0
-# `ruby #{actions_file} #{ARGV[0]} #{ARGV[1]} #{ARGV[2]}`
-# `ruby #{components_file} #{ARGV[0].capitalize} #{ARGV[1]} #{ARGV[2]}`
-# `ruby #{reducers_file} #{ARGV[0]} #{ARGV[1]} #{ARGV[2]}`
-end
-
-#remove
-if $?.to_i==0
-# `rm #{actions_file}`
-# `rm #{components_file}`
-# `rm #{reducers_file}`
-end
+# ruby ~/Projects/Ruby/mustache/redux_generate_template.rb countnumber count number

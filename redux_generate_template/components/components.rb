@@ -37,7 +37,7 @@ export default class {{class_name}} extends Component {
 
 class Components < Mustache
   def class_name
-    ARGV[0]
+    ARGV[0].capitalize
   end
 
   def action
@@ -56,11 +56,11 @@ end
 
 output = Components.render(template)
 
-output_path = File.expand_path File.dirname(__FILE__)
+output_path = Dir.pwd
 puts "Now in:" + output_path
-puts "Create: #{ARGV[0]}.js 內容如下 \n"
+puts "Create: #{ARGV[0].capitalize}.js 內容如下 \n"
 puts "***********************************************"
 puts output
 
-File.open("#{output_path}/#{ARGV[0]}.js", 'w'){ |file| file.write(output) }
+File.open("#{output_path}/#{ARGV[0].capitalize}.js", 'w'){ |file| file.write(output) }
 
